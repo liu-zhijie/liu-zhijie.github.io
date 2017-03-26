@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT, liuzhijie" />
 
 
 
@@ -87,25 +87,13 @@
 
 
 
-<meta name="description" content="作者：D-Fly
-链接：https://www.zhihu.com/question/21650209/answer/74621897
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="刘志杰的个人主页">
 <meta property="og:url" content="http://www.liuzhijie.com/404.html">
 <meta property="og:site_name" content="刘志杰的个人主页">
-<meta property="og:description" content="作者：D-Fly
-链接：https://www.zhihu.com/question/21650209/answer/74621897
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。">
-<meta property="og:updated_time" content="2017-03-04T16:09:10.344Z">
+<meta property="og:updated_time" content="2017-03-04T16:39:26.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刘志杰的个人主页">
-<meta name="twitter:description" content="作者：D-Fly
-链接：https://www.zhihu.com/question/21650209/answer/74621897
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。">
 
 
 
@@ -118,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '6393659156221396000',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -325,18 +313,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="robots" content="all">
   <meta name="robots" content="index,follow">
+  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
 </head>
 <body>
-
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="your site url " homepagename="回到我的主页"></script>
-
+  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
+  </script>
+  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
+  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
 </body>
 </html>
-
-作者：D-Fly
-链接：https://www.zhihu.com/question/21650209/answer/74621897
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。
     
   </div>
 
@@ -348,9 +333,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="404.html"
-           data-title="" data-url="http://www.liuzhijie.com/404.html">
-      </div>
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -423,12 +406,46 @@
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liu-zhijie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/lzj_jie/" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
         </div>
 
         
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.52cik.com/" title="楼教主" target="_blank">楼教主</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         
@@ -558,35 +575,31 @@
 
   
 
-  
-    
+
+
   
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"liuzhijie"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
+
+
+
+	
+
+
+
+
 
   
     
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "1a12cb19c41a40d4b2c313ff2a57891d",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
-
-
-
-
-
-
 
 
 
@@ -728,6 +741,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
