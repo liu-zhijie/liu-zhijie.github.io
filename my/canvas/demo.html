@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-CN">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>canvas粒子-刘志杰的个人主页</title>
+	<style type="text/css">
+		html,
+		body {
+			margin: 0px;
+			padding: 0px;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body onload="init()">
+	<canvas id="cas">你的浏览器不支持canvas标签，建议使用chrome浏览器浏览</canvas>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("cas");
+		var ctx = canvas.getContext("2d");
+		var extendDis = 20;//超出的边界值
+		var dotCount = 160;//粒子数量
+		var lineDis = 9000;//两点间产生连线的最大距离
+		var dots = [];//粒子集合
+		//黑底白点
+		var bgColor="rgb(0,0,0)";//背景颜色
+		var dotColor="rgb(255,255,255)";//点的颜色
+		var lineColor="rgba(255,255,255,1)";//连线的颜色
+		
+		//白底黑点
+		// var bgColor="rgb(246,247,249)";//背景颜色
+		// var dotColor="rgb(192,192,192)";//点的颜色
+		// var lineColor="rgba(192,192,192,1)";//连线的颜色
+
+		//粒子
+		var dotRadius = 1;//半径
+		var isBlink=true;//是否闪烁
+		var speed = 1.5;//粒子运动速度（>1）
+
+		//鼠标活动时，捕获鼠标坐标
+	    window.onmousemove= function(e){
+	    	e = e || e.event;
+	    	warea.x = e.clientX;
+	    	warea.y = e.clientY;
+	    };
+		//鼠标位置
+		var warea = {
+			x:null, 
+			y:null, 
+			max:20000 //最大连线距离
+		};
+
+	    window.onblur = clearWarea;
+	    window.onmouseout = clearWarea;
+	    function clearWarea(){
+	    	warea.x = null;
+	    	warea.y = null;
+	    }
+
+		//窗口大小改变时重画
+		window.onresize=resize;
+		function resize(){
+			canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		}
+
+		//动画
+		var RAF = (function () {
+	        return window.requestAnimationFrame 
+					|| window.webkitRequestAnimationFrame 
+					|| window.mozRequestAnimationFrame 
+					|| window.oRequestAnimationFrame 
+					|| window.msRequestAnimationFrame 
+					|| function (callback) { window.setTimeout(callback, 1000 / 60); };
+	    })();
+
+		//添加粒子
+	    function initDots(){
+		    for (var i = 0; i < dotCount; i++) {
+		    	//x，y为例子坐标，xa，ya为粒子xy轴加速度，max为连线的最大距离
+		    	var x = Math.random()*(canvas.width + 2*extendDis)-extendDis;
+		    	var y = Math.random()*(canvas.height + 2*extendDis)-extendDis;
+		    	var xa = (Math.random()*speed-1)/1.5;
+		    	var ya = (Math.random()*speed-1)/1.5;
+		    	dots.push({
+		    		x:x,
+		    		y:y,
+		    		xa:xa,
+		    		ya:ya,
+		    		max:lineDis
+		    	});
+
+		    };
+	    }
+
+	    //移动
+	    function moveDots(){
+	    	dots.forEach(function(dot){
+	    		//粒子位移
+	    		dot.x += dot.xa;
+	    		dot.y += dot.ya;
+
+	    		//遇到边界，将加速度反向
+	    		dot.xa *= (dot.x>(canvas.width+extendDis) || dot.x<(0-extendDis))?-1:1;
+	    		dot.ya *= (dot.y>(canvas.height+extendDis) || dot.y<(0-extendDis))?-1:1;
+	    	});
+	    }
+
+	    //绘制点
+	    function drawDot(dot,radius){
+			ctx.fillStyle = dotColor;
+			ctx.beginPath();
+			ctx.arc(dot.x, dot.y, radius, 0, 2 * Math.PI, true);
+			ctx.fill();
+	    }
+
+	    //画线
+	    function bubDrawLine(ndots){
+	    	
+	    	dots.forEach(function(dot){
+
+	    		// 绘制点
+	    		var radius= dotRadius;
+				if(isBlink){
+					radius  = radius + Math.random()*radius;
+				}
+	    		drawDot(dot,radius);
+
+	    		for(var i = 0 ; i < ndots.length;i++){
+	    			var ndot = ndots[i];
+
+	    			if(dot===ndot || ndot.x===null || ndot.y===null) continue;
+
+	    			var xc = dot.x - ndot.x;
+	    			var yc = dot.y - ndot.y;
+	    			
+	    			//两个粒子之间的距离
+	    			var dis = xc*xc + yc*yc;
+
+	    			//如果两个粒子之间的距离小于粒子对象的max值，则两个粒子间画线
+	    			if(dis > ndot.max) continue;
+
+	    			// 如果是鼠标，则让粒子向鼠标的位置移动
+	    			if(ndot===warea && dis > ndot.max/2){
+	    				dot.x -= xc*0.01;
+	    				dot.y -= yc*0.01;
+	    			}
+
+	    			//计算距离比
+	    			var ratio = (ndot.max-dis)/ndot.max;
+
+	    			//画线
+	    			ctx.beginPath();
+	    			ctx.lineWidth=ratio / 2;
+	    			ctx.strokeStyle = lineColor;
+	    			ctx.moveTo(dot.x,dot.y);
+	    			ctx.lineTo(ndot.x,ndot.y);
+	    			ctx.stroke();
+	    		}
+
+		    	//将计算过后的粒子从数组中删除
+		    	ndots.splice(ndots.indexOf(dot),1);
+	    	});
+
+	    }
+
+		//动画
+	    function animate(){
+	    	//清除画板
+	    	//ctx.clearRect(0,0,canvas.width,canvas.height);
+	    	
+	    	//绘制背景
+	    	ctx.fillStyle=bgColor;
+	    	ctx.fillRect(0,0,canvas.width,canvas.height);
+
+	    	//移动点
+	    	moveDots();
+			
+			//绘制线
+	    	bubDrawLine([warea].concat(dots));
+
+			RAF(animate);
+	    }
+
+	    //初始化
+		function init(){
+			resize();
+			initDots();
+			animate();	
+		}
+	</script>
+
+</body>
+
+</html>
