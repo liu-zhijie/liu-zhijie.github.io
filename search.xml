@@ -3,16 +3,16 @@
   
     
     <entry>
-      <title><![CDATA[我的第一篇博客]]></title>
-      <url>%2F2016%2F10%2F24%2FMy-New-Post%2F</url>
-      <content type="text"><![CDATA[今年一直都想自己搭建一个自己的博客，在2016/10/24号这一天的晚上终于实现了这一个小目标，还是蛮兴奋的。刚好今天也是1024，程序员的节日。 2013年的时候也在CSDN写过几篇博客，那时候刚好是参加全国蓝桥杯大赛，只是单纯的把当时做的一些算法题的解题代码贴了出来，当作一个记录，也方便后来的人参考。可惜没能坚持下来，一是觉得肚子没啥干货，二是自己本身文笔也不好。 最近几年一直都是在看别人的博客，受益匪浅。突然觉得不能总是做伸手党吧，也应该在互联网上分享一些东西。刚好想到几个月前在楼教主的博客上看到一篇使用 Hexo 在 GitHub 搭建自己的个人静态博客的文章，于是就动手也搭建了你现在看到的这个博客。 用 Hexo 搭建博客，真的很方便，简单的几句命令就搞定了，而且插件很多，可玩性很强。搭建过程中间也遇到了一些坑，在后面的博客中我会分享我的搭建步骤。 折腾了大半夜，终于还是顺利的跑起来了:）。然后用着半生不熟的 Markdown 写下了这篇文章，后面还有很多需要摸索的地方，一步一步来吧。 今天就到这里吧，睡觉了~]]></content>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2018%2F06%2F19%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>%2F2016%2F10%2F24%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <title><![CDATA[我的第一篇博客]]></title>
+      <url>%2F2016%2F10%2F24%2FMy-New-Post%2F</url>
+      <content type="text"><![CDATA[今年一直都想自己搭建一个自己的博客，在2016/10/24号这一天的晚上终于实现了这一个小目标，还是蛮兴奋的。刚好今天也是1024，程序员的节日。 2013年的时候也在CSDN写过几篇博客，那时候刚好是参加全国蓝桥杯大赛，只是单纯的把当时做的一些算法题的解题代码贴了出来，当作一个记录，也方便后来的人参考。可惜没能坚持下来，一是觉得肚子没啥干货，二是自己本身文笔也不好。 最近几年一直都是在看别人的博客，受益匪浅。突然觉得不能总是做伸手党吧，也应该在互联网上分享一些东西。刚好想到几个月前在楼教主的博客上看到一篇使用 Hexo 在 GitHub 搭建自己的个人静态博客的文章，于是就动手也搭建了你现在看到的这个博客。 用 Hexo 搭建博客，真的很方便，简单的几句命令就搞定了，而且插件很多，可玩性很强。搭建过程中间也遇到了一些坑，在后面的博客中我会分享我的搭建步骤。 折腾了大半夜，终于还是顺利的跑起来了:）。然后用着半生不熟的 Markdown 写下了这篇文章，后面还有很多需要摸索的地方，一步一步来吧。 今天就到这里吧，睡觉了~]]></content>
     </entry>
 
     
